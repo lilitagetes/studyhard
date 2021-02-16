@@ -10,6 +10,6 @@ job('First-Maven-Project-Via-DSL') {
         maven('package', 'Lab3_4/pom.xml')
     }
     publishers {
-        atchiveArtfacats '**/*.jar'
+        atchiveArtfacats('**/*.jar')
     }
 }
