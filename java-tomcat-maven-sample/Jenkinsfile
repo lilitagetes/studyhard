@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build App') {
             steps {
-                sh 'mvn -f pom.xml clean package'
+                sh 'mvn -f ./java-tomcat-maven-sample/pom.xml clean package'
             }
             post {
                 success {
@@ -15,7 +15,7 @@ pipeline {
 
         stage('Create Project Docker Image') {
             steps {
-                sh "docker build . -t tomcatsamplewebapp:${env.BUILD_ID}"
+                sh "docker build ./java-tomcat-maven-sample -t tomcatsamplewebapp:${env.BUILD_ID}"
             }
         }
     }
